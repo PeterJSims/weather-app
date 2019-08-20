@@ -5,6 +5,7 @@ const express = require('express');
 const hbs = require('hbs');
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 //Define paths for Express config
 const publicDir = path.join(__dirname, '../public/');
@@ -93,6 +94,6 @@ app.get('*', (req, res) => {
 	});
 });
 
-app.listen(3000, () => {
-	console.log('Loaded');
+app.listen(port, () => {
+	console.log(`Loaded on ${port}`);
 });

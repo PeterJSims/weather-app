@@ -30,7 +30,6 @@ app.get('', (req, res) => {
 app.get('/about', (req, res) => {
 	res.render('about', {
 		title: 'About',
-		aboutText: 'Forecast provided by Dark Sky and location searching provided by Mapbox.  ',
 		name: 'Peter Sims'
 	});
 });

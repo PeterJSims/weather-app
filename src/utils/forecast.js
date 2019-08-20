@@ -10,10 +10,14 @@ const forecast = (lat, long, callback) => {
 			callback('Unable to find location. Try another search.');
 		} else {
 			let current = body.currently;
+			let daily = body.daily.data[0];
 			callback(
 				undefined,
-				`${body.daily.data[0]
-					.summary} It is currently ${current.temperature} degrees celcius with a ${current.precipProbability}% chance of precipitation.`
+				`${daily.summary} It is currently ${Math.ceil(current.temperature)}° with a ${Math.round(
+					current.precipProbability
+				)}% chance of precipitation. Today's high will be ${Math.ceil(
+					daily.temperatureHigh
+				)}° with a low of ${Math.ceil(daily.temperatureLow)}°.`
 			);
 			console.log();
 		}
